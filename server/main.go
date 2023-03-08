@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "gogin/routes"
 
+func main() {
+	routes.HandleRoutes()
 }
