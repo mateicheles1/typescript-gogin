@@ -19,7 +19,8 @@ func GetAlbumById(c *gin.Context) {
 	for _, album := range mockData {
 		id, err := strconv.Atoi(c.Param("id"))
 		if err != nil {
-			c.AbortWithError(404, err)
+			c.Error(err)
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 		}
 		if album.Id == id {
 			c.IndentedJSON(http.StatusOK, album)
@@ -33,7 +34,8 @@ func CreateAlbumById(c *gin.Context) {
 	var requestBody models.Album
 
 	if err := c.BindJSON(&requestBody); err != nil {
-		c.AbortWithError(500, err)
+		c.Error(err)
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 	}
 
 	for index := range mockData {
@@ -48,13 +50,15 @@ func UpdateAlbumById(c *gin.Context) {
 	var requestBody models.Album
 
 	if err := c.BindJSON(&requestBody); err != nil {
-		c.AbortWithError(404, err)
+		c.Error(err)
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 	}
 
 	for index, album := range mockData {
 		id, err := strconv.Atoi(c.Param("id"))
 		if err != nil {
-			c.AbortWithError(404, err)
+			c.Error(err)
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 		}
 		if album.Id == id {
 			mockData[index].Price = requestBody.Price
@@ -69,7 +73,8 @@ func DeleteAlbumById(c *gin.Context) {
 	for index, album := range mockData {
 		id, err := strconv.Atoi(c.Param("id"))
 		if err != nil {
-			c.AbortWithError(404, err)
+			c.Error(err)
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 		}
 		if album.Id == id {
 			mockData = append(mockData[:index], mockData[index+1:]...)
