@@ -11,7 +11,7 @@ func HandleRoutes() {
 	r.GET("/albums", handlers.Albums)
 
 	r.GET("albums/:id", handlers.GetAlbumById)
-	r.POST("albums/:id", handlers.CreateAlbumById)
+	r.POST("albums/", handlers.CreateAlbumById)
 	r.PATCH("albums/:id", handlers.UpdateAlbumById)
 	r.DELETE("albums/:id", handlers.DeleteAlbumById)
 

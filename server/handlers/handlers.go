@@ -37,7 +37,7 @@ func CreateAlbumById(c *gin.Context) {
 	}
 
 	for index := range mockData {
-		requestBody.Id = index + 1
+		requestBody.Id = mockData[index].Id + 1
 	}
 	mockData = append(mockData, requestBody)
 	c.IndentedJSON(http.StatusCreated, requestBody)
@@ -74,6 +74,7 @@ func DeleteAlbumById(c *gin.Context) {
 		if album.Id == id {
 			mockData = append(mockData[:index], mockData[index+1:]...)
 			c.IndentedJSON(http.StatusOK, mockData)
+			return
 		}
 	}
 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "item not found"})
