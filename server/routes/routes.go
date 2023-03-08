@@ -2,7 +2,6 @@ package routes
 
 import (
 	"gogin/handlers"
-	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,5 +15,5 @@ func HandleRoutes() {
 	r.PATCH("albums/:id", handlers.UpdateAlbumById)
 	r.DELETE("albums/:id", handlers.DeleteAlbumById)
 
-	log.Fatal(r.Run("localhost:8080"))
+	r.Run("localhost:8080")
 }
