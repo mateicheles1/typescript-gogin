@@ -1,4 +1,5 @@
 import { Album } from "../models/models";
+import { Container } from "../constants/constants";
 
 async function getData(): Promise<Album[]> {
   const response = await fetch("http://localhost:8080/albums");
@@ -6,6 +7,17 @@ async function getData(): Promise<Album[]> {
   return data.map((album: Album) => new Album(album));
 }
 
-async function printData() {
+export async function PrintData() {
   const data = await getData();
+  data.forEach((album: Album) => {
+    const el = document.createElement("div");
+    el.classList.add("album");
+    el.setAttribute;
+    for (let keys in album) {
+      el.textContent += `${keys}: ${album[keys]} <br>`;
+      Container?.appendChild(el);
+    }
+  });
 }
+
+document.addEventListener("DOMContentLoaded", PrintData);
