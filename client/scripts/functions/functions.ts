@@ -19,5 +19,3 @@ export async function PrintData() {
     }
   });
 }
-
-document.addEventListener("DOMContentLoaded", PrintData);
