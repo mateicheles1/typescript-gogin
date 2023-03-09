@@ -2,3 +2,4 @@
 *.sum
 *.json
 .DS_Store
+*.js
