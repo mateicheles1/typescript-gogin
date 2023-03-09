@@ -14,7 +14,7 @@ export async function PrintData() {
     el.classList.add("album");
     el.setAttribute;
     for (let keys in album) {
-      el.textContent += `${keys}: ${album[keys]} <br>`;
+      el.textContent += `${keys}: ${album[keys]} `;
       Container?.appendChild(el);
     }
   });
