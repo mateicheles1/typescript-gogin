@@ -7,5 +7,6 @@ var Data = models.AppData{
 		{Id: 1, Title: "72 Seasons", Artist: "Metallica", Price: 39.99},
 		{Id: 2, Title: "Let Them Talk", Artist: "Hugh Laurie", Price: 29.99},
 		{Id: 3, Title: "B.B. King & Friends - 80", Artist: "B.B. King", Price: 22.50},
+		{Id: 4, Title: "dasdasa", Artist: "DASDSA", Price: 312312.32},
 	},
 }

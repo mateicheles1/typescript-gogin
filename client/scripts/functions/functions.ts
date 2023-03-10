@@ -10,12 +10,12 @@ async function getData(): Promise<Album[]> {
 export async function PrintData() {
   const data = await getData();
   data.forEach((album: Album) => {
-    const el = document.createElement("div");
-    el.classList.add("album");
-    el.setAttribute;
+    const el = album.createDivChildComponent();
+    el?.classList.add("album");
     for (let keys in album) {
-      el.textContent += `${keys}: ${album[keys]} `;
-      Container?.appendChild(el);
+      el?.textContent += `${keys}: ${album[keys]} `;
+
+      album.printData(Container, el);
     }
   });
 }
